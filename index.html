@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Spin & Earn - Play and Win</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🐕</text></svg>">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -20,7 +20,6 @@
             align-items: center;
             padding: 10px;
         }
-
         .container {
             background: white;
             border-radius: 20px;
@@ -30,19 +29,16 @@
             width: 100%;
             text-align: center;
         }
-
         h1 {
             color: #333;
             margin-bottom: 10px;
             font-size: 2.5em;
         }
-
         .subtitle {
             color: #666;
             margin-bottom: 30px;
             font-size: 1.1em;
         }
-
         .spinner-container {
             position: relative;
             width: 300px;
@@ -50,7 +46,6 @@
             margin: 30px auto;
             perspective: 1000px;
         }
-
         .spinner {
             width: 100%;
             height: 100%;
@@ -68,17 +63,14 @@
             border: 5px solid white;
             transition: transform 0.1s linear;
         }
-
         .spinner.spinning {
             animation: spin 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
         @keyframes spin {
             to {
                 transform: rotateZ(1080deg);
             }
         }
-
         .center-circle {
             position: absolute;
             width: 60px;
@@ -97,7 +89,6 @@
             z-index: 10;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
         .pointer {
             position: absolute;
             width: 0;
@@ -110,7 +101,6 @@
             transform: translateX(-50%);
             z-index: 5;
         }
-
         .spin-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -124,43 +114,36 @@
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-
         .spin-btn:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
         }
-
         .spin-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
         }
-
         .stats {
             display: flex;
             justify-content: space-around;
             margin: 30px 0;
             gap: 15px;
         }
-
         .stat-box {
             background: #f5f5f5;
             padding: 15px 20px;
             border-radius: 10px;
             flex: 1;
         }
-
         .stat-label {
             color: #666;
             font-size: 0.9em;
             margin-bottom: 5px;
         }
-
         .stat-value {
             color: #667eea;
             font-size: 1.5em;
             font-weight: bold;
         }
-
         .result {
             background: #f0f7ff;
             padding: 20px;
@@ -172,19 +155,16 @@
             justify-content: center;
             border-left: 4px solid #667eea;
         }
-
         .result-text {
             font-size: 1.1em;
             color: #333;
             font-weight: bold;
         }
-
         .result-amount {
             color: #FF6B6B;
             font-size: 1.5em;
             font-weight: bold;
         }
-
         .ads-section {
             margin: 30px 0;
             padding: 20px;
@@ -192,13 +172,11 @@
             border-radius: 10px;
             border: 2px dashed #ddd;
         }
-
         .ads-label {
             color: #666;
             font-size: 0.9em;
             margin-bottom: 10px;
         }
-
         #ad-container {
             min-height: 100px;
             background: white;
@@ -208,12 +186,10 @@
             align-items: center;
             border: 1px solid #ddd;
         }
-
         .loading {
             color: #999;
             font-size: 0.9em;
         }
-
         .total-earned {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -222,12 +198,10 @@
             margin: 20px 0;
             text-align: center;
         }
-
         .earned-label {
             font-size: 0.9em;
             opacity: 0.9;
         }
-
         .earned-amount {
             font-size: 2em;
             font-weight: bold;
@@ -238,16 +212,13 @@
     <div class="container">
         <h1>🐕 Dog Spin & Earn</h1>
         <p class="subtitle">Spin the wheel and win prizes!</p>
-
         <div class="spinner-container">
             <div class="pointer"></div>
             <div class="spinner" id="spinner">
                 <div class="center-circle"><span id="center-text">🎯</span></div>
             </div>
         </div>
-
         <button class="spin-btn" id="spinBtn" onclick="spinWheel()">SPIN NOW</button>
-
         <div class="stats">
             <div class="stat-box">
                 <div class="stat-label">Spins</div>
@@ -262,19 +233,16 @@
                 <div class="stat-value" id="winRate">0%</div>
             </div>
         </div>
-
         <div class="result" id="resultDiv" style="display: none;">
             <div>
                 <div class="result-text" id="resultText"></div>
                 <div class="result-amount" id="resultAmount"></div>
             </div>
         </div>
-
         <div class="total-earned">
             <div class="earned-label">Total Earned</div>
             <div class="earned-amount" id="totalEarned">$0.00</div>
         </div>
-
         <div class="ads-section">
             <div class="ads-label">💰 Ad Section - Watch Ads to Earn More</div>
             <div id="ad-container">
@@ -304,7 +272,7 @@
         })();
 
         // Game Configuration
-        const PRIZE_AMOUNTS = [$0.10, $0.25, $0.50, $1.00, $0.15, $2.00];
+        const PRIZE_AMOUNTS = [0.10, 0.25, 0.50, 1.00, 0.15, 2.00];
         const COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F'];
         
         let gameStats = {
@@ -330,11 +298,9 @@
 
         function spinWheel() {
             if (gameStats.isSpinning) return;
-
             gameStats.isSpinning = true;
             document.getElementById('spinBtn').disabled = true;
             document.getElementById('resultDiv').style.display = 'none';
-
             const spinner = document.getElementById('spinner');
             const centerText = document.getElementById('center-text');
             
@@ -359,7 +325,6 @@
                 showResult(prizeAmount);
                 updateDisplay();
                 saveStats();
-
                 gameStats.isSpinning = false;
                 document.getElementById('spinBtn').disabled = false;
                 spinner.classList.remove('spinning');
